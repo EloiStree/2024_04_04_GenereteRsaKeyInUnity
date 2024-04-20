@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.eloistree.generatestorersakey",                              
+  "displayName": "Generate and store RSA Key",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "Allows to generate a RSA key and store it on your device in Unity3D.",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/2024_04_04_GenereteRsaKeyInUnity.git",
+"footprint":"",
+"revision":""},     
+  "category": "Script"                   
+} 

@@ -1,0 +1,16 @@
+
+{                                                                   
+            "name": "be.eloistree.generatestorersakeyEditor",          
+    "references": ["be.eloistree.generatestorersakey"
+],                                                              
+    "optionalUnityReferences": [],                                  
+    "includePlatforms": [                                           
+        "Editor"                                                    
+    ],                                                              
+    "excludePlatforms": [],                                         
+    "allowUnsafeCode": false,                                       
+    "overrideReferences": false,                                    
+    "precompiledReferences": [],                                    
+    "autoReferenced": true,                                         
+    "defineConstraints": []                                         
+}                                                                   
