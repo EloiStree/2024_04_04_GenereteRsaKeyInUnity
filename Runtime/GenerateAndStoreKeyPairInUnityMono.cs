@@ -18,6 +18,8 @@ public class GenerateAndStoreKeyPairInUnityMono : MonoBehaviour
     public UnityEvent<string> m_onPublicXmlLoaded;
     public UnityEvent<string> m_onPrivateXmlLoaded;
     public UnityEvent m_onKeyPairLoaded;
+    public bool m_createNewOneEveryTime = false;
+    public string m_subFolderName = "Default";
     void Start()
     {
         GeneratePrivatePublicRsaKey();
@@ -28,13 +30,17 @@ public class GenerateAndStoreKeyPairInUnityMono : MonoBehaviour
     {
         RSA rsa = RSA.Create();
         rsa.KeySize = 1024;
-        m_privateXmlKey = rsa.ToXmlString(true);
-        m_publicXmlKey = rsa.ToXmlString(false);
 
-        string path = Path.Combine(Application.persistentDataPath, "KeyPair");
-        string pathPublic = Path.Combine(path, "RSA_PUBLIC_XML.txt");
-        string pathPrivate = Path.Combine(path, "RSA_PRIVATE_XML.txt");
-        if (!Directory.Exists(path))
+
+        string path = Path.Combine(Application.persistentDataPath, Path.Combine("KeyPair",m_subFolderName));
+        string pathPublic = Path.Combine(path,"RSA_PUBLIC_XML.txt");
+        string pathPrivate = Path.Combine(path,  "RSA_PRIVATE_XML.txt");
+
+            m_privateXmlKey = rsa.ToXmlString(true);
+             m_publicXmlKey = rsa.ToXmlString(false); 
+        
+
+        if (m_createNewOneEveryTime || !Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
             System.IO.File.WriteAllText(pathPublic, m_publicXmlKey);
