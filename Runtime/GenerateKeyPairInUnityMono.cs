@@ -3,14 +3,13 @@ using System.Security.Cryptography;
 using System.Xml;
 using UnityEngine;
 
-public class GenerateKeyPairInUnityMono : MonoBehaviour
+public class GenerateKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
 {
     
 
     [TextArea(0, 10)]
     public string m_publicXmlKey;
-    [TextArea(0,10)]
-    public string m_privateXmlKey;
+    string m_privateXmlKey;
 
     public string m_messageToSign="Bonjour";
     public string m_messageToSigned;
@@ -64,6 +63,22 @@ public class GenerateKeyPairInUnityMono : MonoBehaviour
         messageBytes = System.Text.Encoding.UTF8.GetBytes(m_messageToSign);
         signature = rsa.SignData(messageBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
         m_messageToSigned = Convert.ToBase64String(signature);
+    }
+
+    public override void GetKeyPairXml(out string keyPrivate, out string keyPublic)
+    {
+        keyPrivate = m_privateXmlKey;
+        keyPublic = m_publicXmlKey;
+    }
+
+    public override void GetPrivateXml(out string key)
+    {
+        key = m_privateXmlKey;
+    }
+
+    public override void GetPublicXml(out string key)
+    {
+        key = m_publicXmlKey;
     }
 }
 

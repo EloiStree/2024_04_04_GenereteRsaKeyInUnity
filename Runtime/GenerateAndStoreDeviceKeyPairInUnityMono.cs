@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GenerateAndStoreDeviceKeyPairInUnityMono : MonoBehaviour
+public class GenerateAndStoreDeviceKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
 {
     public string m_secretPassphrase = "0123456789";
     public string deviceIdentifier;
@@ -78,5 +78,21 @@ public class GenerateAndStoreDeviceKeyPairInUnityMono : MonoBehaviour
             rsa.ImportParameters(rsaParams);
             return rsa.ToXmlString(false); // Do not include private key information
         }
+    }
+
+    public override void GetKeyPairXml(out string keyPrivate, out string keyPublic)
+    {
+        keyPrivate = m_privateXmlKey;
+        keyPublic = m_publicXmlKey;
+    }
+
+    public override void GetPrivateXml(out string key)
+    {
+        key = m_privateXmlKey;
+    }
+
+    public override void GetPublicXml(out string key)
+    {
+        key = m_publicXmlKey;
     }
 }
