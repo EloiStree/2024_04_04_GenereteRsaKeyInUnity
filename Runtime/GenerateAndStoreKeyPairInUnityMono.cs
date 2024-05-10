@@ -24,35 +24,26 @@ public class GenerateAndStoreKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
         GeneratePrivatePublicRsaKey();
     }
 
+    public void OverrideFromInspectorValue()
+    {
+        OverridePrivateKey(m_privateXmlKey);
+    }
+    public void OverridePrivateKey(string privateKeyRsa)
+    {
+      
+        GenerateAndReadKeyPairInPermaSubfolder.OverrideWithPrivateKey(m_subFolderName, privateKeyRsa, out _);
+        GeneratePrivatePublicRsaKey();
+    }
+
     [ContextMenu("Generate Random Public Private RSA Key")]
     private void GeneratePrivatePublicRsaKey()
     {
-        RSA rsa = RSA.Create();
-        rsa.KeySize = 1024;
+        GenerateAndReadKeyPairInPermaSubfolder.GetOrCreatePrivatePublicRsaKey(m_subFolderName, out m_privateXmlKey, out m_publicXmlKey, false);
 
-
-        string path = Path.Combine(Application.persistentDataPath, Path.Combine("KeyPair",m_subFolderName));
-        string pathPublic = Path.Combine(path,"RSA_PUBLIC_XML.txt");
-        string pathPrivate = Path.Combine(path,  "RSA_PRIVATE_XML.txt");
-
-            m_privateXmlKey = rsa.ToXmlString(true);
-             m_publicXmlKey = rsa.ToXmlString(false); 
-        
-
-        if (m_createNewOneEveryTime || !Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-            System.IO.File.WriteAllText(pathPublic, m_publicXmlKey);
-            System.IO.File.WriteAllText(pathPrivate, m_privateXmlKey);
-            Debug.Log("Public and private keys saved in:\n " + path);
-        }
-       
-
-        m_publicXmlKey = System.IO.File.ReadAllText(pathPublic );
-        m_privateXmlKey= System.IO.File.ReadAllText(pathPrivate );
+      
         m_onPublicXmlLoaded.Invoke(m_publicXmlKey);
         m_onPrivateXmlLoaded.Invoke(m_privateXmlKey);
-        Debug.Log("Public and private keys Stored in:\n " + path);
+        Debug.Log("Public and private keys Stored in:\n " + GenerateAndReadKeyPairInPermaSubfolder.GetDirectoryPathOfDevice(m_subFolderName));
         m_onKeyPairLoaded.Invoke();
 
 
@@ -97,7 +88,7 @@ public static class GenerateAndReadKeyPairInPermaSubfolder
 {
 
 
-    public static void GetOrCreatePrivatePublicRsaKey(string subFolderName, out string privateXmlKey, out string publicXmlKey, bool createNewOneEveryTime=false)
+    public static void GetOrCreatePrivatePublicRsaKey(string subFolderName, out string privateXmlKey, out string publicXmlKey, bool createNewOneEveryTime = false)
     {
         RSA rsa = RSA.Create();
         rsa.KeySize = 1024;
@@ -120,5 +111,27 @@ public static class GenerateAndReadKeyPairInPermaSubfolder
         publicXmlKey = System.IO.File.ReadAllText(pathPublic);
         privateXmlKey = System.IO.File.ReadAllText(pathPrivate);
 
+    }
+    public static void OverrideWithPrivateKey(string subFolderName,  string privateXmlKey, out string publicXmlKey)
+    {
+        RSA rsa = RSA.Create();
+        rsa.KeySize = 1024;
+        rsa.FromXmlString(privateXmlKey);
+        string path = Path.Combine(Application.persistentDataPath, Path.Combine("KeyPair", subFolderName));
+        string pathPublic = Path.Combine(path, "RSA_PUBLIC_XML.txt");
+        string pathPrivate = Path.Combine(path, "RSA_PRIVATE_XML.txt");
+
+        privateXmlKey = rsa.ToXmlString(true);
+        publicXmlKey = rsa.ToXmlString(false);
+
+            Directory.CreateDirectory(path);
+            System.IO.File.WriteAllText(pathPublic, publicXmlKey);
+            System.IO.File.WriteAllText(pathPrivate, privateXmlKey);
+
+    }
+
+    public  static string GetDirectoryPathOfDevice(string subFolderName="Default")
+    {
+        return Path.Combine(Application.persistentDataPath, Path.Combine("KeyPair", subFolderName));
     }
 }
