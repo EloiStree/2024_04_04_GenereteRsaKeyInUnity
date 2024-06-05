@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8365219353075352052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8446484062116613458}
+  - component: {fileID: 502746026516833746}
+  m_Layer: 0
+  m_Name: Generate Blocky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8446484062116613458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365219353075352052}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01000002, y: 0.16, z: 0.8699999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &502746026516833746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365219353075352052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a1376961ef363459db1c3bf3b2a155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_publicXmlKey: '<RSAKeyValue>   <Exponent>AQAB</Exponent>   <Modulus>1lfNaGzdlRv43Rs+cQQvmDuW+gyVcwXG2La6lVWj/4JGamtRo3BO0IetiVuHKCnUlATWKZhmwyORwQDf41MPzLqBDHPSWN0IMBmSbkPBBCLJFvMv161fFS32+YRFGWumMi8406FTB4bX5H8Fpwt7LQnkhS7Zm/s2c/JHTvEUMZM=</Modulus>
+    </RSAKeyValue> '
+  m_publicXmlKeyAsByte: d657cd686cdd951bf8dd1b3e71042f983b96fa0c957305c6d8b6ba9555a3ff82466a6b51a3704ed087ad895b872829d49404d6299866c32391c100dfe3530fccba810c73d258dd083019926e43c10422c916f32fd7ad5f152df6f98445196ba6322f38d3a1530786d7e47f05a70b7b2d09e4852ed99bfb3673f2474ef1143193
+  m_texture: {fileID: 0}
+  m_onTextureGenerated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.UI.RawImage, UnityEngine.UI
+        m_MethodName: set_texture
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  m_mip: 0
+  m_linear: 0
