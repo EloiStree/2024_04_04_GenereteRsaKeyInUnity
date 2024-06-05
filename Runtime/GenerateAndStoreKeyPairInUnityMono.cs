@@ -19,7 +19,7 @@ public class GenerateAndStoreKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
     public UnityEvent m_onKeyPairLoaded;
     public bool m_createNewOneEveryTime = false;
     public string m_subFolderName = "Default";
-    void Start()
+    void Awake()
     {
         GeneratePrivatePublicRsaKey();
     }
@@ -58,11 +58,16 @@ public class GenerateAndStoreKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
 
     public override void GetPrivateXml(out string key)
     {
+        if(string.IsNullOrEmpty(m_privateXmlKey))
+            GeneratePrivatePublicRsaKey();
+
         key = m_privateXmlKey;
     }
 
     public override void GetPublicXml(out string key)
     {
+        if (string.IsNullOrEmpty(m_publicXmlKey))
+            GeneratePrivatePublicRsaKey();
         key = m_publicXmlKey;
     }
 
