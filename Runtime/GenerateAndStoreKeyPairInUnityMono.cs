@@ -50,6 +50,11 @@ public class GenerateAndStoreKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
 
     }
 
+    [ContextMenu("Open folder with keys")]
+    public void OpenFolderWithKeys() {
+        Application.OpenURL(GenerateAndReadKeyPairInPermaSubfolder.GetDirectoryPathOfDevice(m_subFolderName));
+    }
+
     public override void GetKeyPairXml(out string keyPrivate, out string keyPublic)
     {
         keyPrivate = m_privateXmlKey;
