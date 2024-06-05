@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_publicXmlKey: 
-  m_privateXmlKey: 
   m_onPublicXmlLoaded:
     m_PersistentCalls:
       m_Calls: []
@@ -55,3 +54,5 @@ MonoBehaviour:
   m_onKeyPairLoaded:
     m_PersistentCalls:
       m_Calls: []
+  m_createNewOneEveryTime: 0
+  m_subFolderName: Default

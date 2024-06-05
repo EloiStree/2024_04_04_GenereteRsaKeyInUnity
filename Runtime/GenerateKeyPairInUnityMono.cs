@@ -9,7 +9,8 @@ public class GenerateKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
 
     [TextArea(0, 10)]
     public string m_publicXmlKey;
-    string m_privateXmlKey;
+    [TextArea(0,2)]
+    public string m_privateXmlKey;
 
     public string m_messageToSign="Bonjour";
     public string m_messageToSigned;
