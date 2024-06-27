@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ImportPrivateKeyFromKeyboardMono : MonoBehaviour
+public class ImportPrivateKeyFromClipboardMono : MonoBehaviour
 {
 
     public string m_privateXmlKey;
