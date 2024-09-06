@@ -1,7 +1,7 @@
 
 {                                                                   
-            "name": "be.eloistree.generatestorersakeyEditor",          
-    "references": ["be.eloistree.generatestorersakey"
+            "name": "be.elab.generatestorersakeyEditor",          
+    "references": ["be.elab.generatestorersakey"
 ],                                                              
     "optionalUnityReferences": [],                                  
     "includePlatforms": [                                           
