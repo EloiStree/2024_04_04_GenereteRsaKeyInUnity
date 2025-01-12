@@ -35,9 +35,7 @@ public class ImportPrivateKeyFromClipboardMono : MonoBehaviour
                     {
                         try
                         {
-                            RSA rsa = RSA.Create();
-                            rsa.KeySize = 1024;
-                            rsa.FromXmlString(m_clipboardCurrentValue);
+                            Rsa4096SignVerifyUtility.LoadPrivateKey4096FromXml(m_clipboardCurrentValue, out RSA rsa);
                             m_privateXmlKey = m_clipboardCurrentValue;
                             m_privateKeyDetectedInClipboard.Invoke(m_privateXmlKey);
                         }

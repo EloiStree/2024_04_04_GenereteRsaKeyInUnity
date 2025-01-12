@@ -100,8 +100,9 @@ public static class GenerateAndReadKeyPairInPermaSubfolder
 
     public static void GetOrCreatePrivatePublicRsaKey(string subFolderName, out string privateXmlKey, out string publicXmlKey, bool createNewOneEveryTime = false)
     {
-        RSA rsa = RSA.Create();
-        rsa.KeySize = 1024;
+
+        Rsa4096SignVerifyUtility.CreateRsaKey4096(out RSA rsa);
+
         string path = Path.Combine(Application.persistentDataPath, Path.Combine("KeyPair", subFolderName));
         string pathPublic = Path.Combine(path, "RSA_PUBLIC_XML.txt");
         string pathPrivate = Path.Combine(path, "RSA_PRIVATE_XML.txt");
@@ -124,9 +125,8 @@ public static class GenerateAndReadKeyPairInPermaSubfolder
     }
     public static void OverrideWithPrivateKey(string subFolderName,  string privateXmlKey, out string publicXmlKey)
     {
-        RSA rsa = RSA.Create();
-        rsa.KeySize = 1024;
-        rsa.FromXmlString(privateXmlKey);
+
+        Rsa4096SignVerifyUtility.LoadPrivateKey4096FromXml(privateXmlKey, out RSA rsa);
         string path = Path.Combine(Application.persistentDataPath, Path.Combine("KeyPair", subFolderName));
         string pathPublic = Path.Combine(path, "RSA_PUBLIC_XML.txt");
         string pathPrivate = Path.Combine(path, "RSA_PRIVATE_XML.txt");

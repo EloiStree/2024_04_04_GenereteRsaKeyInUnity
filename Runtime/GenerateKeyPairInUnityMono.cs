@@ -24,21 +24,17 @@ public class GenerateKeyPairInUnityMono : AbstractKeyPairRsaHolderMono
     [ContextMenu("Generate Random Public Private RSA Key")]
     private void GeneratePrivatePublicRsaKey()
     {
-        RSA rsa = RSA.Create();
-        
-        
-            rsa.KeySize = 1024;
-            m_privateXmlKey = rsa.ToXmlString(true);
-            m_publicXmlKey = rsa.ToXmlString(false);
+
+
+        Rsa4096SignVerifyUtility.CreateRsaKey4096(out m_privateXmlKey, out m_publicXmlKey);
  
     }
 
 
     [ContextMenu("Sign message and check signature")]
     public void SignAndCheckMessage() {
-        RSA rsa = RSA.Create();
-        rsa.KeySize = 1024;
-        rsa.FromXmlString(m_privateXmlKey);
+
+        Rsa4096SignVerifyUtility.LoadPrivateKey4096FromXml(m_privateXmlKey, out RSA rsa);
         SignMessage(rsa);
         CheckSignMessage(rsa);
     }
