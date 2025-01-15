@@ -7,7 +7,10 @@
   "unityRelease": "",                             
   "description": "Allows to generate a RSA key and store it on your device in Unity3D.",                         
   "keywords": ["Script","Tool"],                       
-  "dependencies":{},     
+  "dependencies":{
+
+    "be.elab.pathtype":"0.0.1"
+  },     
   "relatedPackages":{},     
  "samples": [
     {
