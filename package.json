@@ -2,14 +2,14 @@
 {                                                                                
   "name": "be.elab.generatestorersakey",                              
   "displayName": "Generate and store RSA Key",                        
-  "version": "0.0.1",                         
+  "version": "2025.1.16",                         
   "unity": "2018.1",                             
   "unityRelease": "",                             
   "description": "Allows to generate a RSA key and store it on your device in Unity3D.",                         
   "keywords": ["Script","Tool"],                       
   "dependencies":{
 
-    "be.elab.pathtype":"0.0.1"
+    "be.elab.pathtype":"2025.1.16"
   },     
   "relatedPackages":{},     
  "samples": [
