@@ -1,4 +1,4 @@
-# Open UPM: GenereteRsaKeyInUnity
+# Open UPM: Store Genereted Rsa Key InUnity
 
 This package has one main goal: to store generated RSA keys in Unity.
 
